@@ -4,18 +4,19 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node index.js",
+    "test": "node test.js"
   },
   "keywords": [],
+  "type": "module",
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "dot-json": "^1.2.2",
-    "express": "^4.17.1",
-    "json-loader": "^0.5.7"
+    "dot-json": "1.2.2",
+    "express": "4.17.1",
+    "json-loader": "0.5.7"
   },
   "devDependencies": {
-    "@types/express": "^4.17.11"
+    "@types/express": "4.17.11"
   }
 }
