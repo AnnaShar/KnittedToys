@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
-    "test": "node test.js"
+    "start": "node --experimental-json-modules index.js",
+    "test": "node --experimental-json-modules test.js"
   },
   "keywords": [],
   "type": "module",
