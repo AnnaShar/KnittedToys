@@ -1,5 +1,4 @@
-{
-  "toys": [
+[
     {
       "id": 1,
       "name": "Giraffe",
@@ -19,4 +18,3 @@
       "creationDate": "24.09.2020"
     }
   ]
-}
