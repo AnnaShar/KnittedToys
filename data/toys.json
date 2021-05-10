@@ -1,1 +1,14 @@
-[{"id":2,"name":"Sloth","description":"I'm lazy and I know it","creationDate":"24.09.2020"}]
+{
+  "2": {
+    "id": 2,
+    "name": "Sloth",
+    "description": "I'm lazy and I know it",
+    "creationDate": "24.09.2020"
+  },
+  "3": {
+    "id": 3,
+    "name": "Jellyfish",
+    "description": "Maybe I don't look very professional but it's because I'm your first... ",
+    "creationDate": "24.09.2020"
+  }
+}
