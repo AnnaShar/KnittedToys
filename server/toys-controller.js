@@ -1,4 +1,4 @@
-import RequestError from './errors.js';
+import RequestError from './error.js';
 import {updateFile, getDataFromFile} from "./file-data-handler.js";
 import config from './config.js';
 
@@ -17,6 +17,11 @@ const getAllToys = () => {
     return toys;
 };
 
+const getAllToysInArray = () =>{
+  const toys = getAllToys();
+  return Object.values(toys);
+};
+
 const getToy = (toyID) => {
     let toys = getAllToys();
     let toy = toys[toyID];
@@ -32,22 +37,15 @@ export const updateToy = (toyID, toyNewProperties) => {
     let toy = toys[toyID];
     if (!toy) throw new RequestError(404, `Toy with id ${toyID} does not found.`);
 
-    //TODO what the best way to avoid id changing???
-    if(toyNewProperties.id){
-        toyNewProperties.id = toyID;
-        // delete toyNewProperties.id;
-    }
-
     const newToy = {
         ...toy,
-        ...toyNewProperties
+        ...toyNewProperties,
+        id: toyID
     };
-
     toys[toyID] = newToy;
-
     updateToysFile();
 
-    return JSON.stringify(toy);
+    return JSON.stringify(newToy);
 };
 
 export const deleteToy = (toyID) => {
@@ -60,7 +58,7 @@ export const deleteToy = (toyID) => {
 
     updateToysFile();
 
-    return JSON.stringify(toys);
+    return getAllToysInArray();
 };
 
 export const addToy = (newToy) => {
@@ -74,7 +72,7 @@ export const addToy = (newToy) => {
 
     updateToysFile();
 
-    return JSON.stringify(toys);
+    return getAllToysInArray();
 };
 
 const updateToysFile = () => {
@@ -86,7 +84,7 @@ const updateToysFile = () => {
 };
 
 export default {
-    getAll: getAllToys,
+    getAll: getAllToysInArray,
     getById: getToy,
     updateById: updateToy,
     deleteById: deleteToy,

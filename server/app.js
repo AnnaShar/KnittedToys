@@ -1,9 +1,16 @@
 import toysController from "./toys-controller.js";
 
 import express from 'express';
+import bodyParser from 'body-parser';
 const port = 8080;
 
 const app = express();
+app.use(express.static('client'));
+// app.use(express.static('client', { maxAge: '1y' }));
+app.use(bodyParser.json());
+app.use(express.json({
+    type: ['application/json', 'text/plain']
+}));
 
 const handleResponse = (req, res, handler) => {
     try {
@@ -13,6 +20,10 @@ const handleResponse = (req, res, handler) => {
         res.status(e.status).send(e.message);
     }
 };
+
+// app.get("/", (req, res)=>{
+//     res.sendFile
+// });
 
 app.get("/api/toys", (req, res) => {
     handleResponse(req, res, () => {
@@ -29,33 +40,26 @@ app.get("/api/toys/:uid", (req, res) => {
 
 app.delete('/api/toys/:uid', (req, res) => {
     let id = req.params.uid;
-    console.log(`id - ${id}`);
+
     handleResponse(req, res, () => {
         return toysController.deleteById(id);
     });
 });
 
 app.patch('/api/toys/:uid', (req, res) => {
-    console.log(req.body);
     if (!req.body) return res.sendStatus(400);
 
     let id = req.params.uid;
-    let newToyProperties = Object.keys(req.body);
-
     handleResponse(req, res, () => {
-        return toysController.updateById(id, newToyProperties);
+        return toysController.updateById(id, req.body);
     });
 });
 
 app.post('/api/toys', (req, res) => {
-    console.log(req.body);
     if (!req.body) return res.sendStatus(400);
 
-    //TODO Check how to add properties
-    let newToyProperties = Object.keys(req.body);
-
     handleResponse(req, res, () => {
-        return toysController.add(newToyProperties);
+        return toysController.add(req.body);
     });
 });
 
