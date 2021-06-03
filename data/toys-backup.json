@@ -16,5 +16,23 @@
     "name": "Jellyfish",
     "description": "Maybe I don't look very professional but it's because I'm your first... ",
     "creationDate": "24.09.2020"
+  },
+  "4": {
+    "id": 4,
+    "name": "Giraffe",
+    "description": "The cutest toy ever",
+    "creationDate": "03.11.2019"
+  },
+  "5": {
+    "id": 5,
+    "name": "Sloth",
+    "description": "I'm lazy and I know it",
+    "creationDate": "24.09.2020"
+  },
+  "6": {
+    "id": 6,
+    "name": "Jellyfish",
+    "description": "Maybe I don't look very professional but it's because I'm your first... ",
+    "creationDate": "24.09.2020"
   }
 }
