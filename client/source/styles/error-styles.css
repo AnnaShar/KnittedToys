@@ -1,0 +1,23 @@
+.error-wrap {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 80%;
+    height: 30%;
+}
+.error-message{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2em;
+}
+.error-img{
+    width: 20%;
+    height: 100%;
+    position: relative;
+}
+.error-img img{
+    position: absolute;
+    max-width:100%;
+    max-height: 100%;
+}

@@ -2,18 +2,18 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <link href="source/styles/general-styles.css" rel="stylesheet" type="text/css">
+    <link href="source/styles/toy-table-styles.css" rel="stylesheet" type="text/css">
+    <link href="source/styles/modal-styles.css" rel="stylesheet" type="text/css">
+    <link href="source/styles/error-styles.css" rel="stylesheet" type="text/css">
+    <link href="source/styles/event-styles.css" rel="stylesheet" type="text/css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="shortcut icon" href="./images/favicon.ico" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@0,200;0,400;0,600;1,200;1,400;1,600&display=swap" rel="stylesheet">
+    <script type="module" src="index.js"></script>
+    <title>Knitted Toys Store</title>
 </head>
 <body>
-<button onclick="openStore()">Go to store</button>
+
 </body>
-
-<script>
-    function openStore() {
-        fetch('http://localhost:8080/api/toys')
-            .then(res => console.log(res))
-            .catch(err => console.log(err));
-    }
-</script>
-
 </html>

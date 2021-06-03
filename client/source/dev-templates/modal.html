@@ -11,33 +11,44 @@
 <body>
 <h1>Welcome to Knitted Toys Store!</h1>
 <div class="toys-store">
-    <div class="toys-table table">
-        <div class="table__row row-caption">
-            <div class="table__cell cell-caption" data-column="id">ID</div>
-            <div class="table__cell cell-caption" data-column="name">Name</div>
-            <div class="table__cell cell-caption" data-column="creation-date">Date of creation</div>
-            <div class="table__button-wrap"></div>
-        </div>
 
-        <div class="table__row row-content">
-            <div class="table__cell cell-content" data-column="id">1</div>
-            <div class="table__cell cell-content" data-column="name">Sloth</div>
-            <div class="table__cell cell-content" data-column="creation-date">15.03.2020</div>
+    <div class="toy-update-modal modal">
 
-            <div class="table__button-wrap">
-                <object class="table__button" type="image/svg+xml" data="../images/delete-forever.svg" data-row-id="1">
-                    <span>Delete</span>
-                </object>
+        <div class="modal__content">
+
+
+            <div class="modal__header">
+                <div class="modal__header--text">Header</div>
+                <span class="modal__close-button">&times;</span>
             </div>
-        </div>
-    </div>
 
-    <div id="myModal" class="modal">
+            <div class="modal__body">
+                <div class="modal__details details-row">
+                    <div class="details-row__key">ID</div>
+                    <div class="details-row__value">7</div>
+                </div>
 
-        <!-- Modal content -->
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <p>Some text in the Modal..</p>
+                <div class="modal__details details-row">
+                    <div class="details-row__key">NAME</div>
+                    <textarea class="details-row__value">Sloth</textarea>
+                </div>
+
+                <div class="modal__details details-row">
+                    <div class="details-row__key">DATE OF CREATION</div>
+                    <div class="details-row__value">21/04/2020</div>
+                </div>
+
+                <div class="modal__details details-row">
+                    <div class="details-row__key">DESCRIPTION</div>
+                    <div class="details-row__value">I'm lazy and I know it I'm lazy and I know it I'm lazy and I know it
+                        I'm lazy and I know it I'm lazy and I know it I'm lazy and I know it
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal__footer">
+                <div class="modal__submit-button">Submit</div>
+            </div>
         </div>
 
     </div>

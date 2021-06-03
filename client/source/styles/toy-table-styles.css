@@ -1,0 +1,53 @@
+.toys-table{
+    display: flex;
+    flex-direction: column;
+    width: 55%;
+    font-size: 1.2em;
+}
+.row-caption{
+    font-weight: bold;
+    text-transform: uppercase;
+    background: #aed581;
+    color: white;
+}
+.table__row{
+    display: flex;
+    margin: 0 10px;
+    line-height: 1.5em;
+    border-bottom: 1px solid #2e7d32;
+}
+.table__row.updated{
+    background: #dcedc8;
+}
+.row-content:hover{
+    background: aliceblue;
+    cursor: pointer;
+}
+.table__cell{
+    display: flex;
+    align-items: center;
+    margin: 5px;
+    width: 31%;
+}
+
+.table__button-wrap{
+    width:5%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.delete-button{
+    fill:gainsboro;
+    cursor: pointer;
+}
+.delete-button:hover {
+    fill: red;
+}
+.edit-button{
+    fill:gainsboro;
+    cursor: pointer;
+}
+.edit-button:hover {
+    fill: #8bc34a;
+}

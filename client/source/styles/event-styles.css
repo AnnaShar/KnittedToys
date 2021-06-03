@@ -1,0 +1,13 @@
+.event-message{
+    width: 100%;
+    height: 2em;
+    font-size: 1.2em;
+    text-align: center;
+    padding: 10px 0 0 0;
+}
+.event-message.success{
+    color: #aed581;
+}
+.event-message.failed{
+    color: red;
+}

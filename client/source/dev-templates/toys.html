@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link href="./toys-styles.css" rel="stylesheet" type="text/css">
+    <link href="../styles/toys-styles.css" rel="stylesheet" type="text/css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@0,200;0,400;0,600;1,200;1,400;1,600&display=swap"
           rel="stylesheet">
@@ -25,11 +25,21 @@
             <div class="table__cell cell-content" data-column="creation-date">15.03.2020</div>
 
             <div class="table__button-wrap">
-                <object class="table__button" type="image/svg+xml" data="delete-forever.svg" data-row-id="1">
+                <object class="table__button" type="image/svg+xml" data="../images/delete-forever.svg" data-row-id="1">
                     <span>Delete</span>
                 </object>
             </div>
         </div>
+    </div>
+
+    <div id="myModal" class="modal">
+
+        <!-- Modal content -->
+        <div class="modal-content">
+            <span class="modal__close-button">&times;</span>
+            <p>Some text in the Modal..</p>
+        </div>
+
     </div>
 
 </div>
