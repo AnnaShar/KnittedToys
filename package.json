@@ -2,17 +2,17 @@
   "name": "node-app",
   "version": "1.0.0",
   "description": "",
-  "main": "app.js",
+  "main": "server/app.js",
   "scripts": {
-    "start": "node --experimental-json-modules app.js",
-    "test": "node --experimental-json-modules test.js"
+    "start": "node --experimental-json-modules server/app.js",
+    "test": "node --experimental-json-modules server/test.js"
   },
   "keywords": [],
   "type": "module",
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "body-parser": "^1.19.0",
+    "body-parser": "1.19.0",
     "dot-json": "1.2.2",
     "express": "4.17.1",
     "json-loader": "0.5.7"
