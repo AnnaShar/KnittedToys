@@ -2,16 +2,18 @@ import serverRequests from './server-requests.js'
 import htmlGenerator from './html-generators/html-generator.js';
 import htmlCreator from './html-generators/html-creator.js';
 
-const renderPageContent = async () => {
-    try {
-        let page = htmlCreator.createDiv(['page-content']);
-        page.append(renderHeader());
+const renderPage = () => {
+    let body = document.querySelector('body');
+    let bodyContent = renderBody();
+    body.append(bodyContent);
         page.append(renderEventMessageWrap());
         page.append(await renderToyTable());
         return page;
-    } catch (e) {
-        return renderErrorMessage(e);
-    }
+};
+const renderBody = () =>{
+    let page = htmlCreator.createDiv(['page-content']);
+    page.append(renderHeader());
+    page.append(await renderToyTable());
 };
 
 const renderHeader = () => {
@@ -49,7 +51,7 @@ const renderErrorMessage = (errorMessage) => {
 };
 
 export default {
-    renderMainPage: renderPageContent,
+    renderMainPage: renderPage,
     renderToyTable: renderToyTable
 }
 
