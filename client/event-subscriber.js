@@ -25,7 +25,7 @@ const generalElements = [
         'selector': '.delete-button',
         'event': 'click',
         'handler': function (event) {
-            eventHandler.delete(this);
+            eventHandler.deleteElement(this);
             event.stopPropagation();
         }
     },

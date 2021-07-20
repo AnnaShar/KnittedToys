@@ -1,4 +1,4 @@
-import generator from './html-creator.js';
+import generator from './html-helpers.js';
 
 const generateModalWindow = (header, items, mode) => {
     let modalWindow = generator.createDiv(['toy-update-modal', 'modal', mode]);
@@ -72,5 +72,5 @@ const generateModalFooter = (mode) => {
 
 
 export default {
-    generateModalWindow: generateModalWindow
+    generateModalWindow
 }

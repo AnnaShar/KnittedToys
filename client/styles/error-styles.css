@@ -2,8 +2,9 @@
     display: flex;
     flex-direction: row;
     justify-content: center;
-    width: 80%;
+    width: 100%;
     height: 30%;
+    background: white;
 }
 .error-message{
     display: flex;

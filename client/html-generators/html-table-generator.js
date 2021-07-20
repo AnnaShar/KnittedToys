@@ -1,4 +1,4 @@
-import generator from './html-creator.js';
+import generator from './html-helpers.js';
 
 const generateTable = (columns, items) => {
     let table = generator.createDiv(['table', 'toys-table']);
@@ -56,22 +56,8 @@ const generateCell = (column, value, type) => {
 };
 
 const generateButtonCell = () => {
-    let btnCell = generator.createDiv(['table__button-wrap']);
-    return btnCell;
+    return generator.createDiv(['table__button-wrap']);
 };
-
-// const generateDeleteButton = () => {
-//     let button = document.createElement('object');
-//     button.classList.add('table__button');
-//     button.type = 'image/svg+xml';
-//     button.data = 'delete-forever.svg';
-//
-//     let span = document.createElement('span');
-//     span.innerText = 'Delete';
-//     button.append(span);
-//
-//     return button;
-// };
 
 const generateDeleteButton = () => {
     const iconSvg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
