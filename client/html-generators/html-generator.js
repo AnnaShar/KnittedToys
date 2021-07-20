@@ -15,7 +15,7 @@ const generateModalWindow = (header, items)=>{
 };
 
 export default {
-    generateToyTable: generateToyTable,
-    generateErrorMessage: generateErrorMessage,
-    generateModalWindow:generateModalWindow
+    generateToyTable,
+    generateErrorMessage,
+    generateModalWindow
 }

@@ -1,4 +1,4 @@
-const createDiv = (classList, text) => {
+const createDiv = (classList = [], text) => {
     let div = document.createElement('div');
     classList.forEach((className) => div.classList.add(className));
     if (text) {
@@ -10,28 +10,28 @@ const createDiv = (classList, text) => {
 const createImg = (src, alt) => {
     let img = document.createElement('img');
     img.src = src;
-    if(alt) {
+    if (alt) {
         img.alt = alt;
     }
 
     return img;
 };
 
-const createHeader = (headerText, type, classList) => {
-    let header = document.createElement(type);
+const createHeader = (headerType, headerText, classList = []) => {
+    let header = document.createElement(headerType);
     classList.forEach((className) => header.classList.add(className));
     header.innerText = headerText;
     return header;
 };
 
-const createSpan = (classList, innerHTML) => {
+const createSpan = (classList = [], innerHTML) => {
     let span = document.createElement('span');
     classList.forEach((className) => span.classList.add(className));
     span.innerHTML = innerHTML;
     return span;
 };
 
-const createTextArea = (classList, innerHTML) => {
+const createTextArea = (classList = [], innerHTML) => {
     let textarea = document.createElement('textarea');
     classList.forEach((className) => textarea.classList.add(className));
     textarea.innerHTML = innerHTML;
@@ -40,9 +40,9 @@ const createTextArea = (classList, innerHTML) => {
 
 
 export default {
-    createDiv: createDiv,
-    createImg:createImg,
-    createHeader:createHeader,
-    createSpan:createSpan,
-    createTextArea:createTextArea
+    createDiv,
+    createImg,
+    createHeader,
+    createSpan,
+    createTextArea
 }

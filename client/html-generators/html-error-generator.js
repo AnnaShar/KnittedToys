@@ -1,5 +1,5 @@
-import links from "../config-files/links.js";
-import generator from './html-creator.js';
+import links from '../config-files/links.js';
+import generator from './html-helpers.js';
 
 const generateErrorMessage = (message) => {
     let errorWrap = generator.createDiv(['error-wrap']);
@@ -18,5 +18,5 @@ const generateErrorMessage = (message) => {
 };
 
 export default {
-    generateErrorMessage: generateErrorMessage
+    generateErrorMessage
 }
