@@ -1,9 +1,9 @@
 import serverRequests from './server-requests.js';
 import customEvents from './custom-events.js';
-import eventMessage from './event-messages.js';
-import render from './main-page-rendering.js';
+import render from './main-page-renderer.js';
 import {subscribeToEvents, subscribers} from "./event-subscriber.js";
 import htmlGenerator from './html-generators/html-modal-generator.js';
+//import toastrMessages from './toastr-message.js';
 
 const showUpdateWindow = async (item) => {
     const row = item.closest('.row-content');
@@ -68,20 +68,16 @@ const showDetails = async (item) => {
 
 
 const completeDeletion = async (event) => {
-    eventMessage.show(event.detail.message, event.detail.status);
+    //toastrMessages.showSuccessfulMessage(event.detail.message, 'Delete');
     await updateTable();
-    setTimeout(() => {
-        eventMessage.clear();
-    }, 3000);
 };
 
 const completeUpdate = async (event) => {
-    eventMessage.show(event.detail.message, event.detail.status);
+    //toastrMessages.showSuccessfulMessage(event.detail.message, 'Update');
     await updateTable();
     let updatedRow = document.querySelector(`[data-row-id="${event.detail.id}"`);
     updatedRow.classList.add('updated');
     setTimeout(() => {
-        eventMessage.clear();
         updatedRow.classList.remove('updated');
     }, 3000);
 };
@@ -89,7 +85,8 @@ const completeUpdate = async (event) => {
 
 const updateTable = async () => {
     const table = document.querySelector('.toys-store');
-    const updatedTable = await render.renderToyTable();
+    let toys = await serverRequests.getAllToys();
+    const updatedTable = await render.renderToysTable(toys);
     table.parentNode.replaceChild(updatedTable, table);
     subscribeToEvents(subscribers.general);
 };
@@ -100,12 +97,12 @@ const closeModalWindow = () => {
 };
 
 export default {
-    showUpdateWindow: showUpdateWindow,
-    updateElement: updateElement,
-    delete: deleteElement,
-    showDetails: showDetails,
-    completeDeletion: completeDeletion,
-    completeUpdate: completeUpdate,
-    closeModalWindow: closeModalWindow
+    showUpdateWindow,
+    updateElement,
+    deleteElement,
+    showDetails,
+    completeDeletion,
+    completeUpdate,
+    closeModalWindow
 
 }
