@@ -1,43 +1,39 @@
-import serverRequests from './server-requests.js'
 import htmlGenerator from './html-generators/html-generator.js';
-import htmlCreator from './html-generators/html-creator.js';
+import htmlCreator from './html-generators/html-helpers.js';
 
 const renderPage = () => {
+    let bodyContent = htmlCreator.createDiv(['page-content']);
+    bodyContent.append(renderHeader());
+
     let body = document.querySelector('body');
-    let bodyContent = renderBody();
     body.append(bodyContent);
-        page.append(renderEventMessageWrap());
-        page.append(await renderToyTable());
-        return page;
+    return bodyContent;
 };
-const renderBody = () =>{
-    let page = htmlCreator.createDiv(['page-content']);
-    page.append(renderHeader());
-    page.append(await renderToyTable());
+
+const renderContentPage = (toys) => {
+    const toysContent = renderToysTable(toys);
+    const pageContent = renderPage();
+    pageContent.append(toysContent);
+};
+
+const renderErrorPage = (error) => {
+    const errorHTML = htmlGenerator.generateErrorMessage(error.message);
+    const pageContent = renderPage();
+    pageContent.append(errorHTML);
 };
 
 const renderHeader = () => {
     const headerText = 'Welcome to Knitted Toys Store!';
-    return htmlCreator.createHeader(headerText, 'h1', ['page-header']);
+    return htmlCreator.createHeader('h1', headerText, ['page-header']);
 };
 
-const renderEventMessageWrap = () => {
-    return htmlCreator.createDiv(['event-message']);
-};
+const renderToysTable = (toys) => {
+    let tableWrap = htmlCreator.createDiv(['toys-store']);
+    if (toys.length === 0) return tableWrap;
 
-const renderToyTable = async () => {
-    try {
-        const toys = await serverRequests.getAllToys();
-
-        let tableWrap = htmlCreator.createDiv(['toys-store']);
-        if (toys.length===0) return tableWrap;
-
-        const table = htmlGenerator.generateToyTable(columnsForTable, toys);
-        tableWrap.append(table);
-        return tableWrap;
-    } catch (e) {
-        return renderErrorMessage(e);
-    }
+    const table = htmlGenerator.generateToyTable(columnsForTable, toys);
+    tableWrap.append(table);
+    return tableWrap;
 };
 
 const columnsForTable = {
@@ -46,13 +42,10 @@ const columnsForTable = {
     'creationDate': 'Date of creation'
 };
 
-const renderErrorMessage = (errorMessage) => {
-    return htmlGenerator.generateErrorMessage(errorMessage);
-};
-
 export default {
-    renderMainPage: renderPage,
-    renderToyTable: renderToyTable
+    renderContentPage,
+    renderToysTable,
+    renderErrorPage
 }
 
 
